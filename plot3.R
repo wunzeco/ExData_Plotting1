@@ -1,4 +1,4 @@
-plot2 <- function(file) {
+plot3 <- function(file) {
     ## This function plots a graph of Global Active Power measurements between
     ## 01/02/2007 and 02/02/2007.
     df <- read.csv2(file, na.string = "?", dec = ".")
@@ -12,11 +12,16 @@ plot2 <- function(file) {
     df1$Time <- strptime(t, format = "%d/%m/%Y %H:%M:%S")
     
     ## plot graph to png file
-    png(filename = "plot2.png", width = 480, height = 480)
-    with(df1, plot(Time, Global_active_power,
-                   type = "l", xlab = "", ylab = "Global Active Power (kilowatts)")
-    )
+    png(filename = "plot3.png", width = 480, height = 480)
+    
+    with(df1, plot(Time, Sub_metering_1, type = "l", col = "black", 
+                   xlab = "", ylab = "Energy sub metering"))
+    with(df1, points(Time, Sub_metering_2, type = "l", col = "red"))
+    with(df1, points(Time, Sub_metering_3, type = "l", col = "blue"))
+    legend("topright", lty = 1, col = c("black", "red", "blue"), 
+           legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+    
     dev.off()
 }
 
-plot2("../household_power_consumption.txt")
+plot3("../household_power_consumption.txt")

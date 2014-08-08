@@ -13,11 +13,10 @@ plot1 <- function(file) {
     
     ## plot graph
     png(filename = "plot1.png", width = 480, height = 480)
-    with(subset(df1, subset = s),  
-         hist(df1$Global_active_power, 
-              col = "red", 
-              main = "Global Active Power", 
-              xlab = "Global Active Power (kilowatts)")
+    with(df1, hist(Global_active_power, 
+                   col = "red",
+                   main = "Global Active Power",
+                   xlab = "Global Active Power (kilowatts)")
          )
     dev.off()
 }
