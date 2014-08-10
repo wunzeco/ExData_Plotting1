@@ -20,9 +20,9 @@ plot4 <- function(file) {
               xlab = "", ylab = "Global Active Power")
          plot(Time, Voltage,type = "l", 
               xlab = "datetime", ylab = "Voltage")
-         plot(Time, Sub_metering_1, type = "l", col = "black",
+         plot(Time, Sub_metering_1, type = "n",
               xlab = "", ylab = "Energy sub metering")
-         points(Time, Sub_metering_2, type = "l", col = "red")
+         points(Time, Sub_metering_1, type = "l", col = "black")
          points(Time, Sub_metering_2, type = "l", col = "red")
          points(Time, Sub_metering_3, type = "l", col = "blue")
          legend("topright", lty = 1, col = c("black", "red", "blue"), bty = "n",

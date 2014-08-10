@@ -14,8 +14,9 @@ plot3 <- function(file) {
     ## plot graph to png file
     png(filename = "plot3.png", width = 480, height = 480)
     
-    with(df1, plot(Time, Sub_metering_1, type = "l", col = "black", 
+    with(df1, plot(Time, Sub_metering_1, type = "n", 
                    xlab = "", ylab = "Energy sub metering"))
+    with(df1, points(Time, Sub_metering_1, type = "l", col = "black"))
     with(df1, points(Time, Sub_metering_2, type = "l", col = "red"))
     with(df1, points(Time, Sub_metering_3, type = "l", col = "blue"))
     legend("topright", lty = 1, col = c("black", "red", "blue"), 
